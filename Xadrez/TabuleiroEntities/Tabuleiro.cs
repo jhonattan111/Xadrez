@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xadrez.TabuleiroEntities.Excecoes;
+using Xadrez.TabuleiroEntities.XadrezExceptions;
 
 namespace Xadrez.TabuleiroEntities
 {
@@ -32,6 +32,8 @@ namespace Xadrez.TabuleiroEntities
 
         public void ColocarPeca(Peca peca, Posicao posicao)
         {
+            if (ExistePeca(posicao))
+                throw new TabuleiroException("Já existe uma peça nesta posição");
             Pecas[posicao.Linha, posicao.Coluna] = peca;
             peca.PosicaoPeca = posicao;
         }
@@ -39,7 +41,7 @@ namespace Xadrez.TabuleiroEntities
         public bool ValidarPosicao(Posicao posicao)
         {
             if (posicao.Linha < 0 || posicao.Linha >= Linhas || posicao.Coluna < 0 || posicao.Coluna >= Colunas)
-                throw new TabuleiroExcecoes("Posicao Invalida");
+                throw new TabuleiroException("Posicao Invalida");
 
             return true;
         }

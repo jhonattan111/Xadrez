@@ -48,10 +48,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TabuleiroEntities\Cor.cs" />
-    <Compile Include="TabuleiroEntities\Excecoes\TabuleiroExcecoes.cs" />
     <Compile Include="TabuleiroEntities\Peca.cs" />
     <Compile Include="TabuleiroEntities\Posicao.cs" />
     <Compile Include="TabuleiroEntities\Tabuleiro.cs" />
+    <Compile Include="TabuleiroEntities\XadrezExceptions\TabuleiroException.cs" />
     <Compile Include="Tela.cs" />
   </ItemGroup>
   <ItemGroup>
