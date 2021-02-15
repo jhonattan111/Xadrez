@@ -38,6 +38,17 @@ namespace Xadrez.TabuleiroEntities
             peca.PosicaoPeca = posicao;
         }
 
+        public Peca RetirarPeca(Posicao posicao)
+        {
+            if (RetornarPeca(posicao) == null)
+                return null;
+
+            Peca aux = RetornarPeca(posicao);
+            aux.PosicaoPeca = null;
+            Pecas[posicao.Linha, posicao.Coluna] = null;
+            return aux;
+        }
+
         public bool ValidarPosicao(Posicao posicao)
         {
             if (posicao.Linha < 0 || posicao.Linha >= Linhas || posicao.Coluna < 0 || posicao.Coluna >= Colunas)

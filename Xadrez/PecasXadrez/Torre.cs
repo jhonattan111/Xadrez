@@ -16,7 +16,9 @@ namespace Xadrez.PecasXadrez
 
         public override string ToString()
         {
-            return "T";
+            return "T ";
         }
+
+        
     }
 }
