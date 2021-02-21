@@ -26,6 +26,36 @@ namespace Xadrez.TabuleiroEntities
             QuantidadeMovimentos++;
         }
 
+        public void DecrementarQuantidadeMovimento()
+        {
+            QuantidadeMovimentos--;
+        }
+
+        public bool ExisteMovimentoPossivel()
+        {
+            bool[,] matriz = MovimentosPossiveis();
+            for(int i = 0; i < TabuleiroPeca.Linhas; i++)
+            {
+                for (int j = 0; j < TabuleiroPeca.Colunas; j++)
+                {
+                    if (matriz[i, j])
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        public bool PodeMoverPara(Posicao posicao)
+        {
+            return MovimentosPossiveis()[posicao.Linha, posicao.Coluna];
+        }
+
         public abstract bool[,] MovimentosPossiveis();
+
+        protected bool PodeMover(Posicao posicao)
+        {
+            Peca peca = TabuleiroPeca.RetornarPeca(posicao);
+            return peca == null || peca.CorPeca != this.CorPeca;
+        }
     }
 }

@@ -49,17 +49,25 @@ namespace Xadrez.TabuleiroEntities
             return aux;
         }
 
-        public bool ValidarPosicao(Posicao posicao)
+        public void ValidarPosicao(Posicao posicao)
+        {
+            if (!PosicaoValida(posicao))
+            {
+                throw new TabuleiroException("Posição inválida!");
+            }
+        }
+
+        public bool PosicaoValida(Posicao posicao)
         {
             if (posicao.Linha < 0 || posicao.Linha >= Linhas || posicao.Coluna < 0 || posicao.Coluna >= Colunas)
-                throw new TabuleiroException("Posicao Invalida");
+                return false;
 
             return true;
         }
 
         public bool ExistePeca(Posicao posicao)
         {
-            ValidarPosicao(posicao);
+            PosicaoValida(posicao);
             return RetornarPeca(posicao) != null;
         }
     }

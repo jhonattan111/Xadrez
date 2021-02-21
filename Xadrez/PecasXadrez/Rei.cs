@@ -18,13 +18,6 @@ namespace Xadrez.PecasXadrez
         {
             return "R ";
         }
-
-        private bool PodeMover(Posicao posicao)
-        {
-            Peca peca = TabuleiroPeca.RetornarPeca(posicao);
-            return peca == null || peca.CorPeca != this.CorPeca;
-        }
-
         public override bool[,] MovimentosPossiveis()
         {
             bool[,] matriz = new bool[TabuleiroPeca.Linhas, TabuleiroPeca.Colunas];
@@ -33,56 +26,56 @@ namespace Xadrez.PecasXadrez
 
             //norte
             posicao.DefinirValores(PosicaoPeca.Linha - 1, PosicaoPeca.Coluna);
-            if(TabuleiroPeca.ValidarPosicao(posicao) && PodeMover(posicao))
+            if(TabuleiroPeca.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
 
             //nordeste
             posicao.DefinirValores(PosicaoPeca.Linha - 1, PosicaoPeca.Coluna + 1);
-            if (TabuleiroPeca.ValidarPosicao(posicao) && PodeMover(posicao))
+            if (TabuleiroPeca.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
 
             //direita
             posicao.DefinirValores(PosicaoPeca.Linha, PosicaoPeca.Coluna + 1);
-            if (TabuleiroPeca.ValidarPosicao(posicao) && PodeMover(posicao))
+            if (TabuleiroPeca.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
 
             //sudeste
             posicao.DefinirValores(PosicaoPeca.Linha + 1, PosicaoPeca.Coluna + 1);
-            if (TabuleiroPeca.ValidarPosicao(posicao) && PodeMover(posicao))
+            if (TabuleiroPeca.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
 
             //sul
             posicao.DefinirValores(PosicaoPeca.Linha + 1, PosicaoPeca.Coluna);
-            if (TabuleiroPeca.ValidarPosicao(posicao) && PodeMover(posicao))
+            if (TabuleiroPeca.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
 
             //sudoeste
             posicao.DefinirValores(PosicaoPeca.Linha + 1, PosicaoPeca.Coluna - 1);
-            if (TabuleiroPeca.ValidarPosicao(posicao) && PodeMover(posicao))
+            if (TabuleiroPeca.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
 
             //esquerda
             posicao.DefinirValores(PosicaoPeca.Linha, PosicaoPeca.Coluna - 1);
-            if (TabuleiroPeca.ValidarPosicao(posicao) && PodeMover(posicao))
+            if (TabuleiroPeca.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
 
             //noroeste
             posicao.DefinirValores(PosicaoPeca.Linha - 1, PosicaoPeca.Coluna - 1);
-            if (TabuleiroPeca.ValidarPosicao(posicao) && PodeMover(posicao))
+            if (TabuleiroPeca.PosicaoValida(posicao) && PodeMover(posicao))
             {
                 matriz[posicao.Linha, posicao.Coluna] = true;
             }
