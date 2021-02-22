@@ -73,8 +73,7 @@ namespace Xadrez
             Console.WriteLine($"Aguardando jogada: {partida.JogadorAtual}");
 
             if(partida.Xeque)
-                Console.WriteLine("VOCÊ ESTÁ EM XEQUE!1" +
-                    "");
+                Console.WriteLine("VOCÊ ESTÁ EM XEQUE!");
         }
 
         public static void ImprimirPecasCapturadas(PartidaXadrez partida)
